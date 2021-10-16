@@ -13,7 +13,7 @@ const app = http.createServer((req,res)=>{
         res.end('All Artists Data in JSON format from Mongo DB');
     }else{
         res.writeHead(404);
-        res.end('Not Found!');
+        res.end('Not Found!!');
     }
 })
 
