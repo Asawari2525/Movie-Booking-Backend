@@ -21,7 +21,9 @@ const artistSchema = mongoose.Schema({
         type:String,
         unique:true,
     },    
-    movies:[String]
+    movies:{
+        type:[],
+    }
 });
 
 module.exports = mongoose.model("artist",artistSchema);

@@ -3,7 +3,8 @@ const mongoose = require('mongoose');
 const movieSchema = mongoose.Schema({
     movieid:{
         type:Number,
-        require:true
+        require:true,
+        unique:true
     },
     title:{
         type:String,
@@ -18,31 +19,51 @@ const movieSchema = mongoose.Schema({
         require:true
     },
     poster_url:{
-        type:String
+        type:String,
+        require:true
     },
     release_date:{
-        type:Date,
+        type:String,
         require:true
     },
     publish_date:{
-        type:Date,
+        type:String,
         require:true
     },
     artists:{
-        type:[Object],
-       
+        type:[],
+        require:true
     },
-    genres:[String],
-    duration:Number,
-    critic_rating:Number,
-    trailer_url:String,
+    genres:{
+        type:[],
+        require:true
+    },
+    duration:{
+        type:Number,
+        require:true
+    },
+    critic_rating:{
+        type:Number,
+        require:true,
+        min:1,
+        max:5
+    },
+    trailer_url:{
+        type:String,
+        require:true
+    },
+    wiki_url:{
+        type:String,
+        require:true
+    },
+    story_line:{
+        type:String,
+        require:true
+    },
     shows:{
-        type:[String],
-        id:Number,
-        theatre:Object,
-        language:String,
-        show_timing:Date,
-        available_seats:Number,
-        unit_price:Number
+        type:[],
+        require:true
     }
 });
+
+module.exports = mongoose.model('Movie',movieSchema);
